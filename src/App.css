@@ -1,0 +1,149 @@
+body {
+  background-color: #fff;
+  font-size: 0.7rem;
+  line-height: 0.8rem;
+}
+
+p {
+  font-size: 0.7rem;
+  padding: 0;
+  margin: 0;
+}
+
+tbody tr:first-child {
+  font-weight: bold;
+}
+
+.products {
+  color: blue;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.filters div {
+  width: 33%;
+  padding: 10px;
+}
+
+.filters label {
+  display: block;
+}
+
+.filters button {
+  display: block;
+  margin-top: 25px;
+}
+
+#clear-btn {
+  background-color: #fff;
+  color: #bbbbbb;
+  margin: 20px;
+}
+
+div#header h4 {
+  float: left;
+  display: block;
+}
+
+@media only screen and (max-width: 992px) {
+  nav .brand-logo {
+    left: 0;
+    transform: translateX(0);
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 992px) {
+html {
+    font-size: 0.8rem;
+}
+}
+
+#add-courier {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+}
+
+tr.done {
+  background-color: #CCFFCC;
+}
+tr.empty {
+  background-color: #FFFACD;
+}
+tr.other {
+  background-color: #FFE4E1;
+}
+
+.markers {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.marker {
+  width: 33%;
+  padding: 10px;
+}
+.marker p {
+  width: 80%;
+  margin-left: 30px;
+}
+
+#time-wrapper {
+  width: 20%;
+  min-width: 250px;
+}
+#time-wrapper input {
+  margin-bottom: 20px;
+}
+
+#archive-filters {
+  width: 20%;
+  min-width: 250px;
+}
+
+#archive-filters button, #archive-filters input, #archive-filters select {
+  margin: 10px auto;
+}
+#archive-filters button {
+  width: 250px;
+}
+#about button {
+  cursor: pointer;
+  border: 0;
+  background: none;
+  font-weight: bold;
+}
+
+.delete:hover {
+  cursor: pointer;
+  color: #ee6e73;
+}
+
+.courier:hover {
+  background-color: #F8F8FF;
+}
+
+tbody#archive tr td:nth-child(11) {
+  border-left: 2px solid rgba(0,0,0,0.12);
+}
+tbody#archive tr td:nth-child(16) {
+  width: 300px;
+}
+
+tbody#orders tr td:nth-child(10) {
+  border-left: 2px solid rgba(0,0,0,0.12);
+}
+tbody#orders tr td:nth-child(15) {
+  width: 300px;
+}
+
+#login {
+  width: 30%;
+  margin: 60px auto;
+}
