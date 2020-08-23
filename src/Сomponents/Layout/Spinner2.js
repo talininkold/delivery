@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Spinner = () => {
   return (
-    <div class="progress">
-      <div class="indeterminate"></div>
+    <div className="progress">
+      <div className="indeterminate"></div>
     </div>
-  )
-}
+  );
+};
 
-export default Spinner
+export default Spinner;

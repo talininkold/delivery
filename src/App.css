@@ -4,6 +4,16 @@ body {
   line-height: 0.8rem;
 }
 
+.mg {
+  margin: 5px;
+}
+.my-5 {
+  margin: 5px 0;
+}
+.my-10 {
+  margin: 10px 0;
+}
+
 p {
   font-size: 0.7rem;
   padding: 0;
@@ -58,9 +68,9 @@ div#header h4 {
   }
 }
 @media only screen and (min-width: 992px) {
-html {
+  html {
     font-size: 0.8rem;
-}
+  }
 }
 
 #add-courier {
@@ -70,13 +80,13 @@ html {
 }
 
 tr.done {
-  background-color: #CCFFCC;
+  background-color: #ccffcc;
 }
 tr.empty {
-  background-color: #FFFACD;
+  background-color: #fffacd;
 }
 tr.other {
-  background-color: #FFE4E1;
+  background-color: #ffe4e1;
 }
 
 .markers {
@@ -107,7 +117,9 @@ tr.other {
   min-width: 250px;
 }
 
-#archive-filters button, #archive-filters input, #archive-filters select {
+#archive-filters button,
+#archive-filters input,
+#archive-filters select {
   margin: 10px auto;
 }
 #archive-filters button {
@@ -126,18 +138,18 @@ tr.other {
 }
 
 .courier:hover {
-  background-color: #F8F8FF;
+  background-color: #f8f8ff;
 }
 
 tbody#archive tr td:nth-child(11) {
-  border-left: 2px solid rgba(0,0,0,0.12);
+  border-left: 2px solid rgba(0, 0, 0, 0.12);
 }
 tbody#archive tr td:nth-child(16) {
   width: 300px;
 }
 
 tbody#orders tr td:nth-child(10) {
-  border-left: 2px solid rgba(0,0,0,0.12);
+  border-left: 2px solid rgba(0, 0, 0, 0.12);
 }
 tbody#orders tr td:nth-child(15) {
   width: 300px;
@@ -146,4 +158,31 @@ tbody#orders tr td:nth-child(15) {
 #login {
   width: 30%;
   margin: 60px auto;
+}
+
+#change-account-form {
+  max-width: 300px;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+#account-about {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+#account-about div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#account-about div i {
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
 }

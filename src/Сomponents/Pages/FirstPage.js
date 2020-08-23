@@ -1,16 +1,31 @@
-import React, {useContext, Fragment} from 'react'
-import AuthContext from '../Context/authContext/authContext'
-import Login from '../Layout/Login'
-import { Redirect } from 'react-router-dom'
+import React, { useContext, Fragment } from "react";
+import AuthContext from "../Context/authContext/authContext";
+import Login from "../Layout/Login";
+import AccountType from "../Layout/AccountType";
+import { Redirect } from "react-router-dom";
 
 const FirstPage = () => {
-  const authContext = useContext(AuthContext)
+  const { isAuthenticated, isAdm } = useContext(AuthContext);
   return (
     <Fragment>
-      {authContext.isAuthenticated ? <Redirect to='/orders'/> : <Login/> }
+      {!isAuthenticated ? (
+        isAdm ? (
+          <AccountType />
+        ) : (
+          <Login />
+        )
+      ) : (
+        <Redirect to="/orders" />
+      )}
+      {/* {!isAuthenticated ? (
+        <Login />
+      ) : !isAdm ? (
+        <Redirect to="/orders" />
+      ) : (
+        <AccountType />
+      )} */}
     </Fragment>
-    
-  )
-}
+  );
+};
 
-export default FirstPage
+export default FirstPage;
