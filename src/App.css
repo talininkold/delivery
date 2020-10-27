@@ -195,9 +195,9 @@ tbody#orders tr td:nth-child(15) {
     left: 0;
   }
   .wrapper {
-    padding-top: 9rem !important;
+    padding-top: 10rem !important;
   }
   nav.nav-extended {
-    height: 8.5rem !important;
+    height: 10.5rem !important;
   }
 }
