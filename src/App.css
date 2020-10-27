@@ -186,3 +186,18 @@ tbody#orders tr td:nth-child(15) {
   width: 30px;
   height: 30px;
 }
+
+@media (min-width: 993px) {
+  nav {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .wrapper {
+    padding-top: 9rem !important;
+  }
+  nav.nav-extended {
+    height: 8.5rem !important;
+  }
+}

@@ -4,6 +4,7 @@ import FilterReducer from "../Context/FilterReducer";
 import M from "materialize-css/dist/js/materialize.min.js";
 import {
   GET_ORDERS,
+  GET_ORDERS_DELIVERY,
   CLEAR_ORDERS,
   FILTER_ORDERS,
   CLEAR_ORDERS_FILTERS,
@@ -28,6 +29,7 @@ const FilterState = (props) => {
   const initialState = {
     loading: false,
     orders: null,
+    ordersD: null,
     // orders: [["ФИО водителя","Номер телефона\nводителя","chatID","DN","PN","Street","Dot","TimeOpen","TimeClose","Status","ID","Операция","Сумма","ФИО","Телефон","Товары","Оплата","Проверка оплаты"],
     // ["","","",1,1,"Россия, Москва, ул. Проспект мира, д.49, к.44","37.633859 55.783494","","","",8579,"Отправить в Каршеринг",3364,"Ника",79645196578,"УТ-00001339 Летняя книга 907 1 907УТ-00000581 Почтальон Мышка 454 1 454УТ-00001179 Карнавал зверей 454 1 454УТ-00001332 Комиссары Гордон и Жаби. Самый большой самый маленький \nполицейский 378 1 378УТ-00001260 Марта с черепами 340 1 340УТ-00001365 Звери на ковчеге 491 1 491УТ-00000950 Правила жизни 340 1 340","Банковской картой","Да"],
     // ["Безгубенко Данила",79151401471,96635166,1,7,"Россия, Москва, Воронцовские пруды, 7, 11","37.53305 55.663964","2020-06-05\n 07:58:16","2020-06-05\n 08:30:12","Done",7871,"Доставка",5405,"Анна Мелешкина",9161244069,["","УТ-00001382 Флон-Флон и Мюзетт 336 1 336","УТ-00001330 Супер обычный день 588 1 588","УТ-00001188 Лисёнок Гон 504 1 504","УТ-00001392 Для тех, кто учится читать 1500 1 1500","УТ-00001391 Книжный сет для дошкольников с картинками 1500 1 1500","УТ-00001049 Дар неудачи. Отпустите детей — они сами справятся 462 1 462","УТ-00000846 Должно ли детство быть счастливым? 210 1 210 ","ORDER_DELIVERY Доставка заказа 305 1 305 "],"Банковской картой","Да"],
@@ -83,13 +85,22 @@ const FilterState = (props) => {
     const data = await res.json();
     const dataLineBreakes = lineBreakes(data.data);
     dispatch({ type: GET_ORDERS, payload: dataLineBreakes });
-    console.log("orders are here");
+    // console.log("orders are here");
+    dispatch({ type: SET_LOADING, payload: false });
+  };
+
+  const getOrdersDelivery = async () => {
+    dispatch({ type: SET_LOADING, payload: true });
+    const res = await fetch('https://script.google.com/macros/s/AKfycbzXebhTNiUhnUgjXLkevAlwVlN6_0pmb-xOxzyB-g3pR8qj_0A/exec?orderList');
+    const data = await res.json();
+    const dataLineBreakes = lineBreakes(data.data);
+    dispatch({ type: GET_ORDERS_DELIVERY, payload: dataLineBreakes });
     dispatch({ type: SET_LOADING, payload: false });
   };
 
   // CLEAR (REFRESH) CURRENT ORDERS
-  const clearOrders = async () => {
-    dispatch({ type: CLEAR_ORDERS });
+  const clearOrders = async (param) => {
+    dispatch({ type: CLEAR_ORDERS, payload: param });
   };
 
   // FILTER ORDERS
@@ -117,7 +128,7 @@ const FilterState = (props) => {
       const data = await res.json();
       const dataLineBreakes = lineBreakes(data.data);
       dispatch({ type: NAME_FILTER, payload: dataLineBreakes });
-      console.log("name filtered");
+      // console.log("name filtered");
       dispatch({ type: SET_LOADING, payload: false });
     }
   };
@@ -135,7 +146,7 @@ const FilterState = (props) => {
       const data = await res.json();
       const dataLineBreakes = lineBreakes(data.data);
       dispatch({ type: PHONE_FILTER, payload: dataLineBreakes });
-      console.log("phone filtered");
+      // console.log("phone filtered");
       dispatch({ type: SET_LOADING, payload: false });
     }
   };
@@ -211,7 +222,7 @@ const FilterState = (props) => {
   // GET ARCHIVE FOR CURRENT DATES
   const getArchive = async (d1, d2) => {
     dispatch({ type: SET_LOADING, payload: true });
-    console.log(`data 1 ${d1} and data 2 ${d2}`);
+    // console.log(`data 1 ${d1} and data 2 ${d2}`);
     const d2End = d2 + 86340000;
     const res = await fetch(
       `${state.url[localStorage.account]}?ArchiveDate=${
@@ -221,7 +232,7 @@ const FilterState = (props) => {
     const data = await res.json();
     const dataLineBreakes = lineBreakes(data.data);
     dispatch({ type: GET_ARCHIVE, payload: dataLineBreakes });
-    console.log("archive is here");
+    // console.log("archive is here");
     dispatch({ type: SET_LOADING, payload: false });
   };
 
@@ -260,6 +271,7 @@ const FilterState = (props) => {
       value={{
         orders: state.orders,
         ordersF: state.ordersF,
+        ordersD: state.ordersD,
         array: state.array,
         loading: state.loading,
         couriers: state.couriers,
@@ -268,6 +280,7 @@ const FilterState = (props) => {
         archiveF: state.archiveF,
         url: state.url,
         getOrders,
+        getOrdersDelivery,
         filterOrders,
         clearOrders,
         clearOrdersFilters,

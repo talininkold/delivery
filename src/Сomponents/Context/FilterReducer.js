@@ -1,5 +1,6 @@
 import {
   GET_ORDERS,
+  GET_ORDERS_DELIVERY,
   FILTER_ORDERS,
   CLEAR_ORDERS,
   CLEAR_ORDERS_FILTERS,
@@ -27,6 +28,11 @@ export default (state, action) => {
         ...state,
         orders: action.payload
       };
+    case GET_ORDERS_DELIVERY:
+      return {
+        ...state,
+        ordersD: action.payload
+      };
     case FILTER_ORDERS:
       return {
         ...state,
@@ -44,7 +50,7 @@ export default (state, action) => {
     case CLEAR_ORDERS:
       return {
         ...state,
-        orders: null
+        [action.payload]: null
       };
     case CLEAR_ORDERS_FILTERS:
       return {
@@ -136,6 +142,7 @@ export default (state, action) => {
         ...state,
         loading: false,
         orders: null,
+        ordersD: null,
         ordersF: null,
         array: null,
         couriers:[],

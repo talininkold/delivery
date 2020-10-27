@@ -19,6 +19,7 @@ const Navbar = () => {
       }
       authContext.loadUser();
       filterContext.getOrders();
+      filterContext.getOrdersDelivery();
       filterContext.getCouriers();
     }
     console.log("changed");
@@ -65,6 +66,11 @@ const Navbar = () => {
             <li className="tab">
               <Link className="active" to="orders">
                 Заказы
+              </Link>
+            </li>
+            <li className="tab">
+              <Link to="orders_delivery">
+                Заказы на доставку
               </Link>
             </li>
             {user === "admin" && (

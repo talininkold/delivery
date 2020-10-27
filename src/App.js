@@ -6,6 +6,7 @@ import AuthState from "./Сomponents/Context/authContext/AuthState";
 import PrivateRoute from "./Сomponents/Pages/PrivateRoute";
 import Navbar from "./Сomponents/Layout/Navbar";
 import Orders from "./Сomponents/Pages/Orders";
+import OrdersDelivery from "./Сomponents/Pages/OrdersDelivery";
 import Couriers from "./Сomponents/Pages/Couriers";
 import Archive from "./Сomponents/Pages/Archive";
 import FirstPage from "./Сomponents/Pages/FirstPage";
@@ -17,7 +18,7 @@ function App() {
         <Router>
           <div className="App">
             <Navbar />
-            <div style={container}>
+            <div style={container} className="wrapper">
               <Switch>
                 <PrivateRoute
                   exact
@@ -35,6 +36,12 @@ function App() {
                   exact
                   path="/archive"
                   component={Archive}
+                  type={["admin", "supplier"]}
+                />
+                <PrivateRoute
+                  exact
+                  path="/orders_delivery"
+                  component={OrdersDelivery}
                   type={["admin", "supplier"]}
                 />
                 <Route exact path="/" component={FirstPage} />

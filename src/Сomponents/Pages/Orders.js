@@ -11,7 +11,7 @@ const Orders = () => {
     <div>
       <div id="header">
         <h4>Заказы</h4>
-        {filterContext.orders && <button onClick={() => {filterContext.clearOrders(); filterContext.getOrders()}} className="btn waves-effect waves-light сlear" id="clear-btn">Обновить</button>}
+        {filterContext.orders && <button onClick={() => {filterContext.clearOrders("orders"); filterContext.getOrders()}} className="btn waves-effect waves-light сlear" id="clear-btn">Обновить</button>}
       </div>
         {(filterContext.orders == null) ?
         <Spinner /> :
