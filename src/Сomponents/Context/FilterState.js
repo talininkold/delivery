@@ -93,8 +93,8 @@ const FilterState = (props) => {
     dispatch({ type: SET_LOADING, payload: true });
     const res = await fetch('https://script.google.com/macros/s/AKfycbzXebhTNiUhnUgjXLkevAlwVlN6_0pmb-xOxzyB-g3pR8qj_0A/exec?orderList');
     const data = await res.json();
-    const dataLineBreakes = lineBreakes(data.data);
-    dispatch({ type: GET_ORDERS_DELIVERY, payload: dataLineBreakes });
+    // const dataLineBreakes = lineBreakes(data.data);
+    dispatch({ type: GET_ORDERS_DELIVERY, payload: data.data });
     dispatch({ type: SET_LOADING, payload: false });
   };
 

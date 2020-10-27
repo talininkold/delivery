@@ -17,7 +17,7 @@ const OrdersDelivery = () => {
           <tbody>
             {ordersD.map((el, index) => 
             <tr key={index}>
-              {el.map((td, index) => (<td key={index}>{(typeof td === "object") ? td.map((i, index) => (<p key={index}>{i}</p>)) : td}</td>))} 
+              {el.map((td, index) => (<td key={index}>{td}</td>))} 
             </tr> 
             )}
           </tbody>
