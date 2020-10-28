@@ -70,7 +70,7 @@ const Navbar = () => {
             </li>
             <li className="tab">
               <Link to="orders_delivery">
-                Заказы на доставку
+              Очередь доставки
               </Link>
             </li>
             {user === "admin" && (

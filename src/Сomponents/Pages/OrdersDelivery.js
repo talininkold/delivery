@@ -8,7 +8,7 @@ const OrdersDelivery = () => {
   return (
     <div>
       <div id="header">
-        <h4>Заказы на доставку</h4>
+        <h4>Очередь доставки</h4>
         {ordersD && <button onClick={() => {clearOrders("ordersD"); getOrdersDelivery()}} className="btn waves-effect waves-light сlear" id="clear-btn">Обновить</button>}
       </div>
         {(ordersD === null) ?
